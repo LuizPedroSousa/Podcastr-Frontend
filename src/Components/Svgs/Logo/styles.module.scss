@@ -1,0 +1,43 @@
+@import 'utils/animation';
+
+%phoneAnimation {
+  @keyframes phone {
+    0% {
+      opacity: 0;
+      @include translateY(-80px);
+    }
+    50% {
+      @include translateY(0);
+      opacity: 0.2;
+    }
+    100% {
+      @include translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+#phone {
+  opacity: 1;
+  @include translateY(0);
+  @extend %phoneAnimation;
+  @include startAnimation(phone, 2s);
+}
+
+@for $i from 1 through 8 {
+  #letter#{$i} {
+    opacity: 1;
+    @keyframes letter#{$i} {
+      0% {
+        opacity: 0;
+      }
+      90% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @include startAnimation(letter#{$i}, $i / 4 + s);
+  }
+}

@@ -1,0 +1,107 @@
+@import 'theme';
+@import 'utils/animation';
+@import 'utils/display';
+
+.container {
+  position: relative;
+  background-color: $color-white;
+  height: 5.5rem;
+  padding: 0 0.8rem;
+  width: 100%;
+  border-bottom: 1px solid $color-gray-100;
+  @include flex(flex-start);
+  position: relative;
+  span {
+    display: none;
+    font-size: $font-size-lg;
+    color: $color-gray-100;
+  }
+  h2 {
+    @include font-body();
+    display: none;
+  }
+  p {
+    display: none;
+    margin-left: auto;
+    text-align: center;
+    max-width: 8rem;
+    text-transform: capitalize;
+  }
+}
+
+.container {
+  @include bp-sm() {
+    height: 6rem;
+    padding: 0 1rem;
+  }
+
+  @include bp-md() {
+    padding: 0 2rem;
+    height: 6.5rem;
+
+    span {
+      margin: 0 1rem;
+      display: block;
+    }
+
+    h2 {
+      @include flex();
+      @for $i from 0 through 31 {
+        .title_#{$i} {
+          margin: 0;
+          @keyframes title#{$i} {
+            0% {
+              opacity: 0;
+            }
+            90% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+          color: $color-gray-500;
+          @include startAnimation(title#{$i}, $i / 10 + s);
+        }
+      }
+      .title_white {
+        margin: 0 5px;
+      }
+    }
+  }
+  @include bp-lg() {
+    p {
+      display: block;
+    }
+    span {
+      margin: 0 3rem;
+    }
+  }
+}
+
+.menuOptions {
+  position: fixed;
+  width: 100%;
+  background-color: #333;
+  top: 5rem;
+  left: 0;
+  z-index: 2;
+
+  li {
+    @include flex();
+    height: 4rem;
+    :first-child {
+      border-bottom: 1px solid $color-gray-100;
+    }
+    width: 100%;
+    background-color: $color-bg;
+    @include font-header(md);
+    & button {
+      border: 0;
+      background-color: inherit;
+      width: 100%;
+      height: 100%;
+      @include font-header(md);
+    }
+  }
+}

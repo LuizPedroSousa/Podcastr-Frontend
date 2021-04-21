@@ -1,0 +1,12 @@
+@import 'theme';
+.wrapper {
+  width: 100%;
+  main {
+    grid-area: main;
+  }
+  @include bp-lg() {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    grid-template-areas: 'main player';
+  }
+}

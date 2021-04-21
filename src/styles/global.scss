@@ -1,0 +1,42 @@
+@import 'theme';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $color-bg;
+}
+
+@media (min-width: 1080px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+body,
+input,
+textarea,
+button {
+  @include font-body();
+  color: $color-gray-500;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include font-header();
+}
+
+button {
+  cursor: pointer;
+}

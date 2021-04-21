@@ -1,0 +1,17 @@
+@import 'theme';
+@import 'utils/display';
+.homepage {
+  width: 100%;
+  padding: 0 1rem;
+  height: calc(100vh - 6.5rem);
+  overflow-y: scroll;
+  h2 {
+    @include font-header(lg);
+    margin-top: 3rem;
+    margin-bottom: 1.875rem;
+    color: $color-gray-800;
+  }
+  @include bp-lg() {
+    padding: 0 4rem;
+  }
+}

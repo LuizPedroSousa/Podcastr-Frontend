@@ -1,0 +1,23 @@
+@mixin translateY($value) {
+  transform: translateY($value);
+}
+
+@mixin fadeIn($name) {
+  @keyframes fadeIn#{$name} {
+    0% {
+      @include translateY(-50px);
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      @include translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin startAnimation($name, $duration) {
+  animation: $name $duration cubic-bezier(0, 0, 0.38, 1.12);
+}

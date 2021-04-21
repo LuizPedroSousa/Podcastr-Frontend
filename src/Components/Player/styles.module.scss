@@ -1,0 +1,109 @@
+@import 'theme';
+@import 'utils/display';
+@import 'utils/color';
+
+.container {
+  display: none;
+  grid-area: player;
+  background-color: $color-purple-500;
+
+  height: 100vh;
+  footer {
+    @include flex(space-between) {
+      flex-direction: column;
+    }
+    width: 100%;
+    &.empty {
+      opacity: 0.6;
+    }
+  }
+  @include bp-lg() {
+    padding: 2rem;
+    @include flex(space-between) {
+      flex-direction: column;
+    }
+    width: 18rem;
+  }
+  @media (min-width: 1080px) and (max-width: 1280px) {
+    width: 20rem;
+  }
+  @include bp-xl() {
+    padding: 3rem 4.375rem;
+
+    width: 26.5rem;
+    right: 0;
+  }
+}
+
+.title {
+  @include flex();
+  strong {
+    @include font-header(md);
+    color: $color-white;
+    margin-left: 1rem;
+  }
+}
+
+.selectMusic {
+  @include flex();
+  strong {
+    @include font-header();
+    text-align: center;
+    color: $color-white;
+  }
+  width: 100%;
+  border-radius: $border-radius-lg;
+  border: 2px dashed $color-purple-300;
+  background: linear-gradient(
+    143.8deg,
+    rgba(145, 100, 250, 0.8) 0%,
+    rgba(145, 100, 250, 0) 100%
+  );
+
+  @include bp-lg() {
+    height: 16.625rem;
+  }
+  @media (min-width: 67.5em) and (max-width: 80em) {
+    height: 18.625rem;
+  }
+  @include bp-xl() {
+    height: 21.625rem;
+  }
+}
+
+.emptyProgress {
+  width: 100%;
+  @include flex(space-evenly);
+  span {
+    width: 60%;
+    border-bottom: 2px solid $color-purple-300;
+    border-radius: 2px;
+  }
+  p {
+    color: $color-white;
+  }
+}
+
+.buttonsContainer {
+  width: 100%;
+  margin-top: 2rem;
+  @include flex(space-between);
+  button {
+    width: 4rem;
+    height: 4rem;
+    border: 0;
+    background-color: inherit;
+    border-radius: $border-radius-lg;
+    &.playButton {
+      padding: 0 1rem;
+      background-color: $color-purple-400 !important;
+      transition: 0.25s;
+      &:hover {
+        background-color: shade($color-purple-400, 20) !important;
+      }
+    }
+  }
+}
+
+.playButton {
+}

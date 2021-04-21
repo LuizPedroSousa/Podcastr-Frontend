@@ -1,0 +1,37 @@
+@import 'utils/display';
+@import 'utils/animation';
+@import 'theme';
+
+.burgerButton {
+  background-color: inherit;
+  border: 0;
+  padding: 0.5rem;
+  margin-left: auto;
+
+  @include flex();
+  @include bp-lg() {
+    display: none;
+  }
+}
+
+#beforeFirstLine {
+  @include fadeIn(firstLine);
+  @include startAnimation(fadeInfirstLine, 1s);
+}
+
+#beforeSecondLine {
+  @include fadeIn(secondLine);
+  @include startAnimation(fadeInsecondLine, 1.5s);
+}
+
+#beforeThirdLine {
+  @include fadeIn(thirdLine);
+  @include startAnimation(fadeInthirdLine, 2s);
+}
+
+#afterFirstLine {
+}
+#afterSecondLine {
+}
+#afterThirdLine {
+}

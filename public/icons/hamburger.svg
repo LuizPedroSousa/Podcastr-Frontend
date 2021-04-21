@@ -1,0 +1,13 @@
+<svg width="41" height="25" viewBox="0 0 41 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g id="hamburguer">
+    <g id="first_line">
+      <rect id="Rectangle 12" x="15" y="21" width="26" height="4" rx="2" fill="#494C4B" />
+    </g>
+    <g id="first_line_2">
+      <rect id="Rectangle 12_2" y="10" width="41" height="4" rx="2" fill="#494C4B" />
+    </g>
+    <g id="first_line_3">
+      <rect id="Rectangle 12_3" x="5" width="36" height="4" rx="2" fill="#494C4B" />
+    </g>
+  </g>
+</svg>
