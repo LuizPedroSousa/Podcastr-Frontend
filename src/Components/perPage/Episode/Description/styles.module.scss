@@ -1,0 +1,10 @@
+@import 'theme';
+.episodeDescription {
+  p {
+    color: $color-gray-800;
+    font-size: $font-size-md;
+    & + p {
+      margin-top: 1rem;
+    }
+  }
+}

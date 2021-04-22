@@ -1,0 +1,44 @@
+@import 'theme';
+.episodeHeader {
+  margin: 1.5rem 0;
+  border-bottom: 1px solid $color-gray-100;
+  padding-bottom: 1rem;
+  h2 {
+    @include font-header(md);
+    color: $color-gray-800;
+    margin-bottom: 1rem;
+  }
+
+  span {
+    width: 1rem;
+    overflow: hidden;
+    max-width: 70%;
+    position: relative;
+    & + span {
+      margin-left: 1rem;
+    }
+    &:nth-child(2),
+    &:nth-child(3) {
+      &::after {
+        content: '';
+        background-color: $color-gray-100;
+        width: 0.25rem;
+        height: 0.25rem;
+        border-radius: 50%;
+        right: -0.6rem;
+        top: auto;
+        bottom: 0.5rem;
+        position: absolute;
+      }
+    }
+    text-overflow: ellipsis;
+  }
+
+  @include bp-lg() {
+    margin: 2.5rem 0;
+    h2 {
+      max-width: 40.125rem;
+      font-size: $font-size-xl;
+    }
+  }
+}

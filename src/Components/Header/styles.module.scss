@@ -31,14 +31,11 @@
 
 .container {
   @include bp-sm() {
-    height: 6rem;
     padding: 0 1rem;
   }
 
   @include bp-md() {
     padding: 0 2rem;
-    height: 6.5rem;
-
     span {
       margin: 0 1rem;
       display: block;

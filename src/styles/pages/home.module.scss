@@ -5,6 +5,7 @@
   padding: 0 1rem;
   height: calc(100vh - 6.5rem);
   overflow-y: scroll;
+  overflow-x: hidden;
   h2 {
     @include font-header(lg);
     margin-top: 3rem;

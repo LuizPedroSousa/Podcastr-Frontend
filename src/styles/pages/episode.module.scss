@@ -1,0 +1,19 @@
+@import 'theme';
+@import 'utils/display';
+@import 'utils/color';
+.episodePage {
+  padding: 3rem 1.5rem;
+  width: 100%;
+  height: calc(100vh - 6.5rem);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  @include bp-sm() {
+    padding: 3rem 2rem;
+  }
+  @include bp-md() {
+    padding: 3rem 4rem;
+  }
+  @include bp-xl() {
+    padding: 4rem 9rem;
+  }
+}

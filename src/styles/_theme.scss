@@ -12,26 +12,30 @@ $color-purple-500: #8257e5;
 $color-purple-800: #6f48c9;
 
 // Fonts
-$font-size-xs: 0.75em; // 12
-$font-size-sm: 0.875em; // 14
-$font-size-md: 1em; // 16
-$font-size-lg: 1.5em; // 24
+$font-size-xs: 0.75rem; // 12
+$font-size-sm: 0.875rem; // 14
+$font-size-md: 1rem; // 16
+$font-size-lg: 1.5rem; // 24
+$font-size-xl: 2rem; // 32
 
 // Border Radius
-$border-radius-xs: 0.5em; // 8px
-$border-radius-sm: 0.625em; // 10px
-$border-radius-md: 1em; // 16px
-$border-radius-lg: 1.5em; // 24px
+$border-radius-xs: 0.5rem; // 8px
+$border-radius-sm: 0.625rem; // 10px
+$border-radius-2sm: 0.75rem; // 12px
+$border-radius-md: 1rem; // 16px
+$border-radius-lg: 1.5rem; // 24px
 
 @mixin font-header($size: sm) {
   font-weight: 600;
   font-family: Lexend, sans-serif;
-  @if $size == sm {
-    font-size: $font-size-sm;
-  } @else if $size == md {
+  font-size: $font-size-sm;
+  @if $size == md {
     font-size: $font-size-md;
-  } @else {
+  } @else if $size == lg {
     font-size: $font-size-lg;
+  } @else if $size == xl {
+    @warn 'asd';
+    font-size: $font-size-xl;
   }
 }
 @mixin font-body($size: sm) {
