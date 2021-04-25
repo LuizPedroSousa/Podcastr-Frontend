@@ -3,20 +3,34 @@ import React from 'react'
 import styles from './styles.module.scss'
 import PlayGreen from '../../../../../public/play-green.svg'
 import Link from 'next/link'
-
+import PauseGreen from '../../../../../public/pause-green.svg'
+import usePlayer from 'src/hooks/usePlayer'
 interface Episode {
   id: string
   title: string
   members: string
   publishedAt: string
   thumbnail: string
+  duration: number
+  url: string
   durationAsString: string
 }
 
 interface AllEpisodesProps {
   allEpisodes: Array<Episode>
+  episodeList: Array<Episode>
 }
-const AllEpisodes: React.FC<AllEpisodesProps> = ({ allEpisodes }) => {
+const AllEpisodes: React.FC<AllEpisodesProps> = ({
+  allEpisodes,
+  episodeList
+}) => {
+  const {
+    playList,
+    isPlaying,
+    currentEpisode,
+    currentTime: { timeAsString }
+  } = usePlayer()
+
   return (
     <section className={styles.allEpisodesContainer}>
       <h2>Todos os episódios</h2>
@@ -33,41 +47,44 @@ const AllEpisodes: React.FC<AllEpisodesProps> = ({ allEpisodes }) => {
             </tr>
           </thead>
           <tbody>
-            {allEpisodes.map(
-              ({
-                id,
-                thumbnail,
-                title,
-                members,
-                publishedAt,
-                durationAsString
-              }) => (
-                <tr key={id}>
-                  <td className={styles.episodeImage}>
-                    <Image
-                      width={120}
-                      height={120}
-                      objectFit="cover"
-                      src={thumbnail}
-                      alt={title}
-                    />
-                  </td>
-                  <td>
-                    <Link href={`/episodes/${id}`}>
-                      <a>{title}</a>
-                    </Link>
-                  </td>
-                  <td>{members}</td>
-                  <td className={styles.episodeDate}>{publishedAt}</td>
-                  <td>{durationAsString}</td>
-                  <td>
-                    <button type="button">
+            {allEpisodes.map((episode, index) => (
+              <tr key={episode.id}>
+                <td className={styles.episodeImage}>
+                  <Image
+                    width={120}
+                    height={120}
+                    objectFit="cover"
+                    src={episode.thumbnail}
+                    alt={episode.title}
+                  />
+                </td>
+                <td>
+                  <Link href={`/episodes/${episode.id}`}>
+                    <a>{episode.title}</a>
+                  </Link>
+                </td>
+                <td>{episode.members}</td>
+                <td className={styles.episodeDate}>{episode.publishedAt}</td>
+                <td>
+                  {currentEpisode?.id === episode.id
+                    ? timeAsString
+                    : episode.durationAsString}
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    aria-label={`tocar ${episode.title}`}
+                    onClick={() => playList(episodeList, index + 2)}
+                  >
+                    {currentEpisode?.id === episode.id && isPlaying ? (
+                      <PauseGreen />
+                    ) : (
                       <PlayGreen />
-                    </button>
-                  </td>
-                </tr>
-              )
-            )}
+                    )}
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

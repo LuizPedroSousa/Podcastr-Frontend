@@ -4,6 +4,7 @@ import styles from './styles.module.scss'
 import { format } from 'date-fns'
 import ptBr from 'date-fns/locale/pt-BR'
 import LogoImg from '../Svgs/Logo'
+import moment from 'moment'
 import Hamburger from '../Hamburger'
 const Header: React.FC = () => {
   const { date, title } = useMemo(() => {
@@ -23,7 +24,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     setInterval(() => {
-      setTime('')
+      setTime(moment().locale('pt-br').format('LTS'))
     }, 1000)
   }, [])
 

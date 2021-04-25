@@ -62,11 +62,12 @@
         }
       }
       .title_white {
-        margin: 0 5px;
+        margin: 0 3px;
       }
     }
   }
   @include bp-lg() {
+    height: 6.5rem;
     p {
       display: block;
     }

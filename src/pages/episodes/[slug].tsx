@@ -28,6 +28,32 @@ export default function Episodes({ episode }: EpisodesProps) {
     <div className={styles.episodePage}>
       <Head>
         <title>Podcastr | {episode.title}</title>
+        <meta
+          name="description"
+          content={episode.description.replace('<p></p>', '')}
+        />
+        <meta
+          name="image"
+          content={episode.thumbnail}
+        />
+        <meta property="og:image:type" content="image/jpg" />
+        <meta
+          property="og:image"
+          content={episode.thumbnail}
+        />
+        <meta property="og:image:alt" content={episode.title} />
+        <meta property="og:title" content={episode.title} />
+        <meta property="og:description" content={episode.description.replace('<p></p>', '')}/>
+        <meta name="twitter:title" content={episode.title} />
+        <meta
+          name="twitter:image"
+          content={episode.thumbnail}
+        />
+        <meta
+          name="twitter:image:src"
+          content={episode.thumbnail}
+        />
+
       </Head>
       <Thumbnail episode={episode} />
       <Header episode={episode} />
@@ -37,8 +63,23 @@ export default function Episodes({ episode }: EpisodesProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const { data } = await api.get('/episodes', {
+    params: {
+      _sort: 'published_at',
+      _limit: 2,
+      _order: 'desc'
+    }
+  })
+
+  const paths = data.map(({ id }) => {
+    return {
+      params: {
+        slug: id
+      }
+    }
+  })
   return {
-    paths: [],
+    paths,
     fallback: 'blocking'
   }
 }

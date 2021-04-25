@@ -21,7 +21,6 @@
   }
 
   button {
-    $pos: 2rem;
     $size: 1.5rem;
     border: 1px solid $color-gray-100;
     border-radius: $border-radius-sm;
@@ -29,8 +28,8 @@
     position: absolute;
     @include flex();
     background-color: inherit;
-    bottom: $pos;
-    right: $pos;
+    bottom: 2rem;
+    right: 1rem;
     width: $size;
     height: $size;
     &:hover {

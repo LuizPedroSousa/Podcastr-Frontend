@@ -19,7 +19,16 @@ class MyDocument extends Document<DocumentProps> {
       <Html lang="pt-br">
         <Head>
           <meta charSet="UTF-8" />
+          <meta property="og:locale" content="pt_BR"/>
           <meta name="author" content="Luiz Pedro" />
+          <meta name="twitter:image:width" content="860" />
+          <meta name="twitter:image:height" content="630" />
+          <meta property="og:image:width" content="860" />
+          <meta property="og:image:height" content="630" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content="Podcastr" />
+          <meta name="twitter:image:alt" content="Podcastr" />
           <link rel="shortcut icon" href="/favicon.svg" type="image/svg-icon" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
